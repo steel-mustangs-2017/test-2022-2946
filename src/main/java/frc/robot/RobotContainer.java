@@ -12,6 +12,7 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.MotorTest;
 import frc.robot.subsystems.Chassis;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.Intake;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -25,6 +26,7 @@ public class RobotContainer {
   private final Joystick driverController = new Joystick(ControlerConstants.PORT_ID_DRIVER_CONTROLLER);
   // The robot's subsystems and commands are defined here...
   private final Chassis chassisSubsystem = new Chassis();
+  private final Intake intakeSubsystem = new Intake();
   private final DriveCommand driveCommand = new DriveCommand(driverController, chassisSubsystem);
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
 

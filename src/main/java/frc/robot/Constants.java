@@ -19,6 +19,9 @@ public final class Constants {
         public final static int FrontLeft_ID = 2;
         public final static int BackLeft_ID = 3;
     }
+    public final class IntakeConstants{
+        public final static int intakeMotor_ID = 4;
+    }
     public final static class ControlerConstants {
         public static final int PORT_ID_OPERATOR_CONTROLER = 1;
         public static final int PORT_ID_DRIVER_CONTROLLER = 0;
@@ -27,6 +30,12 @@ public final class Constants {
         public static final int TURN_AXIS_ID = 5;
         public static final int FORWARD_THROTTLE_AXIS_ID = 2;
         public static final int TURN_THROTTLE_AXIS_ID = 6;
+
+        public static final int CONTROLLER_BUTTON_A_ID = 0;
+        public static final int CONTROLLER_BUTTON_B_ID = 1;
+        public static final int CONTROLLER_BUTTON_X_ID = 2;
+        public static final int CONTROLLER_BUTTON_Y_ID = 3;
+        
     }
 
 }
