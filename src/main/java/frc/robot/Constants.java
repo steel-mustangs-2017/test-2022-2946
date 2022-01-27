@@ -31,11 +31,11 @@ public final class Constants {
         public static final int FORWARD_THROTTLE_AXIS_ID = 2;
         public static final int TURN_THROTTLE_AXIS_ID = 6;
 
-        public static final int CONTROLLER_BUTTON_A_ID = 0;
-        public static final int CONTROLLER_BUTTON_B_ID = 1;
-        public static final int CONTROLLER_BUTTON_X_ID = 2;
-        public static final int CONTROLLER_BUTTON_Y_ID = 3;
-        
+        public static final int CONTROLLER_BUTTON_A_ID = 1;
+        public static final int CONTROLLER_BUTTON_B_ID = 2;
+        public static final int CONTROLLER_BUTTON_X_ID = 3;
+        public static final int CONTROLLER_BUTTON_Y_ID = 4;
+
     }
 
 }

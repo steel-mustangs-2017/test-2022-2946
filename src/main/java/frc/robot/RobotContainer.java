@@ -9,9 +9,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControlerConstants;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.MotorTest;
 import frc.robot.subsystems.Chassis;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Intake;
 
 /**
@@ -28,6 +31,7 @@ public class RobotContainer {
   private final Chassis chassisSubsystem = new Chassis();
   private final Intake intakeSubsystem = new Intake();
   private final DriveCommand driveCommand = new DriveCommand(driverController, chassisSubsystem);
+  private final IntakeCommand IntakeCommand = new IntakeCommand(operatorController,intakeSubsystem);
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
 
 
@@ -44,11 +48,23 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+
+    new JoystickButton(operatorController, ControlerConstants.CONTROLLER_BUTTON_A_ID)
+    .whenActive(new RunCommand(intakeSubsystem::RunIntake, intakeSubsystem))
+    .whenInactive(new RunCommand(intakeSubsystem::StopIntake, intakeSubsystem));
+
+    new JoystickButton(operatorController, ControlerConstants.CONTROLLER_BUTTON_Y_ID)
+    .whenActive(new RunCommand(intakeSubsystem::ReverseIntake, intakeSubsystem))
+    .whenInactive(new RunCommand(intakeSubsystem::StopIntake, intakeSubsystem));
+    
+
+  }
 
   private void configureDefaultCommands() {
 
     chassisSubsystem.setDefaultCommand(driveCommand);
+    intakeSubsystem.setDefaultCommand(IntakeCommand);
   
   }
 

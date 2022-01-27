@@ -25,13 +25,21 @@ public class Intake extends SubsystemBase {
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
+
     }
-    public void succ(){
-        intakeMotor.set(.5);
-    }
-    public void succnt(){
-        intakeMotor.set(0);
+    public void RunIntake(){
+        intakeMotor.set(1);
+        System.out.println("Intake In ON");
     }
 
+    public void StopIntake(){
+        intakeMotor.set(0);
+        System.out.println("Intake Out ON");
+    }
+
+    public void ReverseIntake(){
+        intakeMotor.set(-5);
+        System.out.println("Intake Out ON");
+    }
 
 }

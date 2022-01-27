@@ -8,7 +8,8 @@ import frc.robot.subsystems.Intake;
 public class IntakeCommand extends CommandBase{
     private final Intake intakeSubsystem;
     private final Joystick operatorController;
-    private final boolean succ = false;
+    private  boolean intakeinBTN = false;
+    private  boolean intakeoutBTN = false;
 
     public IntakeCommand(Joystick operatorController, Intake intakeSubsystem){
        this.operatorController = operatorController;
@@ -20,11 +21,16 @@ public class IntakeCommand extends CommandBase{
 
     @Override
     public void initialize() {
-      intakeSubsystem.succnt();
+      //intakeSubsystem.intakeoutBTN(); 
+      //succnt is intake out
     }
     @Override
     public void execute() {
-        
+    System.out.println("Intake On");
+    intakeinBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_A_ID);
+    intakeoutBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_Y_ID);
+
+    
 
     } 
 }
