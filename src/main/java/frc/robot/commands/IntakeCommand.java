@@ -22,7 +22,7 @@ public class IntakeCommand extends CommandBase{
     @Override
     public void initialize() {
       //intakeSubsystem.intakeoutBTN(); 
-      //succnt is intake out
+      //succ    
     }
     @Override
     public void execute() {

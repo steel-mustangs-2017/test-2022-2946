@@ -38,8 +38,8 @@ public class Chassis extends SubsystemBase {
       driveFrontLeft.setNeutralMode(NeutralMode.Brake);
       driveBackLeft.setNeutralMode(NeutralMode.Brake);
 
-      driveRight.setInverted(true);
-      driveLeft.setInverted(false);
+      driveRight.setInverted(false);
+      driveLeft.setInverted(true);
   }
 
   @Override

@@ -7,14 +7,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Chassis;
+import frc.robot.subsystems.Shooter;
 
 public class MotorTest extends CommandBase {
-  private final Chassis chassisSubsystem;
+  private final Shooter shooterSubsystem;
   private final Joystick operatorController;
   /** Creates a new MotorTest. */
   public MotorTest(Chassis chassisSubsystem, Joystick operatorController) {
-    this.chassisSubsystem = chassisSubsystem;
+    this.shooterSubsystem = shooterSubsystem;
     this.operatorController = operatorController;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(chassisSubsystem);
@@ -23,13 +23,13 @@ public class MotorTest extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    chassisSubsystem.DriveStop();
+    shooterSubsystem.DriveStop();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    chassisSubsystem.DriveRight(operatorController.getRawAxis(3)/4);
+    shooterSubsystem.DriveRight(operatorController.getRawAxis(3)/4);
   }
 
   // Called once the command ends or is interrupted.

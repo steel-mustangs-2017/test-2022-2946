@@ -20,8 +20,13 @@ public final class Constants {
         public final static int BackLeft_ID = 3;
     }
     public final class IntakeConstants{
-        public final static int intakeMotor_ID = 4;
+        public final static int intakeMotor_ID = 13;
     }
+   public final class ShooterConstants{
+public final static int shootermoter1_ID = 4;
+public final static int shootermoter2_ID = 5;
+
+   }
     public final static class ControlerConstants {
         public static final int PORT_ID_OPERATOR_CONTROLER = 1;
         public static final int PORT_ID_DRIVER_CONTROLLER = 0;
