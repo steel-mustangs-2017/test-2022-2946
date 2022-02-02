@@ -22,14 +22,23 @@ public final class Constants {
     public final class IntakeConstants{
         public final static int intakeMotor_ID = 13;
     }
-   public final class ShooterConstants{
-public final static int shootermoter1_ID = 4;
-public final static int shootermoter2_ID = 5;
+public final static class ShooterConstants {
+    public static final int DEVICE_ID_SHOOTER_MASTER = 4;
+    public static final int DEVICE_ID_SHOOTER_SLAVE = 5;
+    public static final int DEVICE_ID_TURRET = 9;
 
-   }
+    public static final double TURRET_KP = .00001;
+    public static final double TURRET_KI = 0;
+    public static final double TURRET_KD = 0.0000001;
+}
+
     public final static class ControlerConstants {
         public static final int PORT_ID_OPERATOR_CONTROLER = 1;
         public static final int PORT_ID_DRIVER_CONTROLLER = 0;
+
+        public static final int SHOOT_AXIS_2_ID = 3;
+        public static final int SHOOT_BUTTON_RB_ID = 6;
+    
 
         public static final int FORWARD_AXIS_ID = 1;
         public static final int TURN_AXIS_ID = 5;
@@ -40,6 +49,7 @@ public final static int shootermoter2_ID = 5;
         public static final int CONTROLLER_BUTTON_B_ID = 2;
         public static final int CONTROLLER_BUTTON_X_ID = 3;
         public static final int CONTROLLER_BUTTON_Y_ID = 4;
+        
 
     }
 

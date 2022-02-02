@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControlerConstants;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.MotorTest;
-import frc.robot.subsystems.Chassis;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -33,6 +33,8 @@ public class RobotContainer {
   private final DriveCommand driveCommand = new DriveCommand(driverController, chassisSubsystem);
   private final IntakeCommand IntakeCommand = new IntakeCommand(operatorController,intakeSubsystem);
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
+  private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
+  private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -65,6 +67,7 @@ public class RobotContainer {
 
     chassisSubsystem.setDefaultCommand(driveCommand);
     intakeSubsystem.setDefaultCommand(IntakeCommand);
+    shooterSubsystem.setDefaultCommand(shootCommand);
   
   }
 
