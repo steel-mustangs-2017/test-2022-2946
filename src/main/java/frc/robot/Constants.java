@@ -31,10 +31,16 @@ public final static class ShooterConstants {
     public static final double TURRET_KI = 0;
     public static final double TURRET_KD = 0.0000001;
 }
+    public final static class IndexerConstants {
+        public final static int IndexerTop = 6;
+        public final static int IndexerBot = 7;
+        public final static int IndexerFeeder = 8;
+    }
 
     public final static class ControlerConstants {
         public static final int PORT_ID_OPERATOR_CONTROLER = 1;
         public static final int PORT_ID_DRIVER_CONTROLLER = 0;
+        
 
         public static final int SHOOT_AXIS_2_ID = 3;
         public static final int SHOOT_BUTTON_RB_ID = 6;
