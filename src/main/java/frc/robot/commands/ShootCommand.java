@@ -18,10 +18,11 @@ public class ShootCommand extends CommandBase {
   private boolean LowShoot;
   private final Indexer indexerSubsystem;
   /** Creates a new ShootCommand. */
-  public ShootCommand(Joystick operatorController, ShooterSubsystem shooterSubsystem, Indexer indexerSubsystem) {
+  public ShootCommand(Joystick operatorController, ShooterSubsystem shooterSubsystem,Indexer indexerSubsystem) {
       this.shooterSubsystem = shooterSubsystem;
       this.operatorController = operatorController;
       this.indexerSubsystem = indexerSubsystem;
+
   
     addRequirements(shooterSubsystem);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -40,25 +41,31 @@ public class ShootCommand extends CommandBase {
   {
     super.execute();
     HighShoot = operatorController.getRawAxis(ControlerConstants.SHOOT_AXIS_2_ID);
+    //System.out.println("HighShoot = " + HighShoot);
     LowShoot = operatorController.getRawButton(ControlerConstants.SHOOT_BUTTON_RB_ID);
     if(HighShoot>0.1){
-      while(shooterSubsystem.AtShootVelocity() == false){
+      shooterSubsystem.ShootHigh();
+      while(shooterSubsystem.AtShootHighVelocity() == false){
         indexerSubsystem.Stopindex();
       }
       indexerSubsystem.RunIndex();
-    shooterSubsystem.ShootHigh();
+    
     }
     else if(LowShoot){
-      while(shooterSubsystem.AtShootVelocity() == false){
-        indexerSubsystem.Stopindex();
+     //System.out.println("LowShoot = " + LowShoot);
+      shooterSubsystem.Shootlow();
+     while(shooterSubsystem.AtShootLowVelocity() == false){
+       indexerSubsystem.Stopindex();
       }
       indexerSubsystem.RunIndex();
-      shooterSubsystem.Shootlow();
+      
     }
     else{
       shooterSubsystem.StopShoot();
       indexerSubsystem.Stopindex();
     }
+    //shooterSubsystem.StopShoot();
+    //indexerSubsystem.Stopindex();
   }
   
     

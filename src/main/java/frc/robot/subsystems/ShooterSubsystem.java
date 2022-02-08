@@ -25,8 +25,8 @@ public class ShooterSubsystem extends SubsystemBase {
   shooterMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
   shooterMotorSlave.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
   
-  shooterMotor.setInverted(true);
-  shooterMotorSlave.setInverted(false);
+  shooterMotor.setInverted(false);
+  shooterMotorSlave.setInverted(true);
   
   shooterMotor.setNeutralMode(NeutralMode.Coast);
   shooterMotorSlave.setNeutralMode(NeutralMode.Coast);
@@ -43,9 +43,8 @@ public class ShooterSubsystem extends SubsystemBase {
     final double speed = 0.7; 
    shooterMotor.set(speed);
     shooterMotorSlave.set(speed);
-    System.out.println("SHOOT");
-    if(AtShootVelocity()){
-      System.out.println("SHOOT");
+    if(AtShootHighVelocity()){
+      System.out.println("High At Velocity");
     }
     
   }
@@ -53,14 +52,16 @@ public class ShooterSubsystem extends SubsystemBase {
      final double speed = 0.3;
     shooterMotor.set(speed);
     shooterMotorSlave.set(speed);
-    System.out.println("SHOOTLOW");
-    if(AtShootVelocity()){
-      System.out.println("SHOOTLOW");
+    if(AtShootLowVelocity()){
+      System.out.println("Low at Velocity");
     }
     
   }
-  public boolean AtShootVelocity(){
-    return shooterMotor.getSelectedSensorVelocity() > 18000;
+  public boolean AtShootHighVelocity(){
+    return shooterMotor.getSelectedSensorVelocity() > 11000;
+  }
+  public boolean AtShootLowVelocity(){
+    return shooterMotor.getSelectedSensorVelocity() > 5000;
   }
   public void StopShoot(){
     shooterMotor.set(0);

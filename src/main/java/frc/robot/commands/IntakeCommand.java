@@ -26,7 +26,7 @@ public class IntakeCommand extends CommandBase{
     }
     @Override
     public void execute() {
-    System.out.println("Intake On");
+   // System.out.println("Intake On");
     intakeinBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_A_ID);
     intakeoutBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_Y_ID);
 

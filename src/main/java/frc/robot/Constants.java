@@ -23,9 +23,9 @@ public final class Constants {
         public final static int intakeMotor_ID = 13;
     }
 
-    public final class LimelightContstants {
+    /*public final class LimelightContstants {
         public static final double 
-    }
+    }*/
 public final static class ShooterConstants {
     public static final int DEVICE_ID_SHOOTER_MASTER = 4;
     public static final int DEVICE_ID_SHOOTER_SLAVE = 5;

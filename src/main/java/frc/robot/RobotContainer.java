@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Indexer;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -32,9 +33,10 @@ public class RobotContainer {
   private final Intake intakeSubsystem = new Intake();
   private final DriveCommand driveCommand = new DriveCommand(driverController, chassisSubsystem);
   private final IntakeCommand IntakeCommand = new IntakeCommand(operatorController,intakeSubsystem);
+  private final Indexer IndexerSubsystem = new Indexer();
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
-  private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem);
+  private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem, IndexerSubsystem);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
