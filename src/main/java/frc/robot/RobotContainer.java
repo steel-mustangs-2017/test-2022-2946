@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControlerConstants;
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -17,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Indexer;
+import frc.robot.subsystems.TurretSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -37,8 +36,8 @@ public class RobotContainer {
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem, IndexerSubsystem);
-
-
+  private final TurretSubsystem turretSubsystem = new TurretSubsystem();
+  private final ManualAim manualAim= new ManualAim(operatorController, turretSubsystem);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -70,7 +69,7 @@ public class RobotContainer {
     chassisSubsystem.setDefaultCommand(driveCommand);
     intakeSubsystem.setDefaultCommand(IntakeCommand);
     shooterSubsystem.setDefaultCommand(shootCommand);
-  
+    turretSubsystem.setDefaultCommand(manualAim);
   }
 
   /**

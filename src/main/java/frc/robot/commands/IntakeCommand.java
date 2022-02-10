@@ -5,7 +5,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ControlerConstants;
 import frc.robot.subsystems.Intake;
 
-public class IntakeCommand extends CommandBase{
+public class IntakeCommand extends CommandBase
+{
     private final Intake intakeSubsystem;
     private final Joystick operatorController;
     private  boolean intakeinBTN = false;
