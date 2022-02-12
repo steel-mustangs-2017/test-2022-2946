@@ -2,7 +2,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.TurretSubsystem;
-import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.Constants.ControlerConstants;;
 
@@ -31,10 +30,10 @@ public class ManualAim extends CommandBase{
             super.execute();
             turn = operatorController.getRawAxis(ControlerConstants.Aim_Axis_ID);
             System.out.println("turn1 = " + turn);
-            if(Math.abs(turn) < .05){turn = 0;}
+            if(Math.abs(turn) < .5){turn = 0;}
             
              System.out.println("turn2 = " + turn);
-            turretSubsystem.Turn(turn/5);
+            turretSubsystem.Turn(turn/4);
         }
     @Override
     public void end(boolean interrupted) {
