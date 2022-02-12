@@ -14,13 +14,13 @@ package frc.robot;
  */
 public final class Constants {
     public final class ChassisConstants{
-        public final static int FrontRight_ID = 0;
-        public final static int BackRight_ID = 1;
+        public final static int FrontRight_ID = 1;
+        public final static int BackRight_ID = 0;
         public final static int FrontLeft_ID = 2;
         public final static int BackLeft_ID = 3;
     }
     public final class IntakeConstants{
-        public final static int intakeMotor_ID = 13;
+        public final static int intakeMotor_ID = 11;
     }
 
     /*public final class LimelightContstants {
@@ -40,13 +40,16 @@ public final static class ShooterConstants {
         public final static int IndexerTop = 6;
         public final static int IndexerBot = 7;
         public final static int IndexerFeeder = 8;
+        public static final int IndexerKicker = 10;
+
     }
 
     public final static class ControlerConstants {
         public static final int PORT_ID_OPERATOR_CONTROLER = 1;
         public static final int PORT_ID_DRIVER_CONTROLLER = 0;
         public static final int Aim_Axis_ID = 0;
-        
+        public static final int Camera_ON_BUTTON_ID = 7;
+        public static final int IndexerFeeder_Button_LB_ID = 5;
 
         public static final int SHOOT_AXIS_2_ID = 3;
         public static final int SHOOT_BUTTON_RB_ID = 6;

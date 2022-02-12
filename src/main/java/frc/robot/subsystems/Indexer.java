@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -9,7 +10,8 @@ public class Indexer extends SubsystemBase{
     private final WPI_TalonSRX indexerTop = new WPI_TalonSRX(IndexerConstants.IndexerTop);
     private final WPI_TalonSRX indexerBot = new WPI_TalonSRX(IndexerConstants.IndexerBot);
     private final WPI_TalonSRX indexerFeeder = new WPI_TalonSRX(IndexerConstants.IndexerFeeder); 
-    private final double speed = 1; 
+    private final WPI_TalonSRX indexerKicker = new WPI_TalonSRX(IndexerConstants.IndexerKicker);
+    private final double speed = 0.75; 
     public Indexer() {
         indexerTop.configFactoryDefault();
         indexerBot.configFactoryDefault();
@@ -29,7 +31,7 @@ public class Indexer extends SubsystemBase{
     public void RunIndex() { 
     indexerTop.set(speed);
     indexerBot.set(speed);
-    indexerFeeder.set(speed);
+    
     } 
 
     /*public void RumbleIndex() {
@@ -42,5 +44,19 @@ public class Indexer extends SubsystemBase{
         indexerTop.set(0);
         indexerBot.set(0);
         indexerFeeder.set(0);
+    }
+    public void RunIndexerFeeder() {
+        indexerFeeder.set(-speed);
+    }
+    public void StopIndexerFeeder() {
+        indexerFeeder.set(0);
+    }
+
+    public void RunIndexerKicker() {
+        indexerKicker.set(speed);
+    }
+
+    public void StopIndexerkicker() {
+        indexerKicker.set(0);
     }
 }

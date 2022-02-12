@@ -38,6 +38,7 @@ public class RobotContainer {
   private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem, IndexerSubsystem);
   private final TurretSubsystem turretSubsystem = new TurretSubsystem();
   private final ManualAim manualAim= new ManualAim(operatorController, turretSubsystem);
+ 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings

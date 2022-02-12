@@ -43,6 +43,7 @@ public class ShootCommand extends CommandBase {
     HighShoot = operatorController.getRawAxis(ControlerConstants.SHOOT_AXIS_2_ID);
     //System.out.println("HighShoot = " + HighShoot);
     LowShoot = operatorController.getRawButton(ControlerConstants.SHOOT_BUTTON_RB_ID);
+    boolean Indexerfeeder = operatorController.getRawButton(ControlerConstants.IndexerFeeder_Button_LB_ID);
     if(HighShoot>0.1){
       shooterSubsystem.ShootHigh();
       while(shooterSubsystem.AtShootHighVelocity() == false){
@@ -66,7 +67,18 @@ public class ShootCommand extends CommandBase {
     }
     //shooterSubsystem.StopShoot();
     //indexerSubsystem.Stopindex();
+ 
+    if(Indexerfeeder){
+    indexerSubsystem.RunIndexerFeeder();
+    indexerSubsystem.RunIndexerKicker();
+    }
+    else {
+      indexerSubsystem.StopIndexerFeeder();
+      indexerSubsystem.StopIndexerkicker();
+    }
   }
+  
+
   
     
    
