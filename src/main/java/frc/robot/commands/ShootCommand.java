@@ -7,6 +7,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ControlerConstants;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubsystem;
 
 public class ShootCommand extends CommandBase {
@@ -15,13 +16,17 @@ public class ShootCommand extends CommandBase {
   private final Joystick operatorController;
   private double HighShoot;
   private boolean LowShoot;
+  private final Indexer indexerSubsystem;
   /** Creates a new ShootCommand. */
-  public ShootCommand(Joystick operatorController, ShooterSubsystem shooterSubsystem) {
+  public ShootCommand(Joystick operatorController, ShooterSubsystem shooterSubsystem,Indexer indexerSubsystem) {
       this.shooterSubsystem = shooterSubsystem;
       this.operatorController = operatorController;
+      this.indexerSubsystem = indexerSubsystem;
+
   
     addRequirements(shooterSubsystem);
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(indexerSubsystem);
   }
 
 // Called when the command is initially scheduled.
@@ -36,17 +41,44 @@ public class ShootCommand extends CommandBase {
   {
     super.execute();
     HighShoot = operatorController.getRawAxis(ControlerConstants.SHOOT_AXIS_2_ID);
+    //System.out.println("HighShoot = " + HighShoot);
     LowShoot = operatorController.getRawButton(ControlerConstants.SHOOT_BUTTON_RB_ID);
+    boolean Indexerfeeder = operatorController.getRawButton(ControlerConstants.IndexerFeeder_Button_LB_ID);
     if(HighShoot>0.1){
-    shooterSubsystem.ShootHigh();
+      shooterSubsystem.ShootHigh();
+      while(shooterSubsystem.AtShootHighVelocity() == false){
+        indexerSubsystem.Stopindex();
+      }
+      indexerSubsystem.RunIndex();
+    
     }
     else if(LowShoot){
+     //System.out.println("LowShoot = " + LowShoot);
       shooterSubsystem.Shootlow();
+     while(shooterSubsystem.AtShootLowVelocity() == false){
+       indexerSubsystem.Stopindex();
+      }
+      indexerSubsystem.RunIndex();
+      
     }
     else{
       shooterSubsystem.StopShoot();
+      indexerSubsystem.Stopindex();
+    }
+    //shooterSubsystem.StopShoot();
+    //indexerSubsystem.Stopindex();
+ 
+    if(Indexerfeeder){
+    indexerSubsystem.RunIndexerFeeder();
+    indexerSubsystem.RunIndexerKicker();
+    }
+    else {
+      indexerSubsystem.StopIndexerFeeder();
+      indexerSubsystem.StopIndexerkicker();
     }
   }
+  
+
   
     
    
@@ -56,6 +88,7 @@ public class ShootCommand extends CommandBase {
   public void end(boolean interrupted) {
     super.end(interrupted);
     shooterSubsystem.StopShoot();
+    indexerSubsystem.Stopindex();
   }
 
   // Returns true when the command should end.

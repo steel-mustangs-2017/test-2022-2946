@@ -28,18 +28,18 @@ public class Intake extends SubsystemBase {
 
     }
     public void RunIntake(){
-        intakeMotor.set(1);
-        System.out.println("Intake In ON");
+        intakeMotor.set(0.9);
+       // System.out.println("Intake In ON");
     }
 
     public void StopIntake(){
         intakeMotor.set(0);
-        System.out.println("Intake Out ON");
+       // System.out.println("Intake Out ON");
     }
 
     public void ReverseIntake(){
         intakeMotor.set(-5);
-        System.out.println("Intake Out ON");
+        //System.out.println("Intake Out ON");
     }
 
 }

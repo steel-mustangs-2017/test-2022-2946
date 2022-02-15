@@ -5,7 +5,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ControlerConstants;
 import frc.robot.subsystems.Intake;
 
-public class IntakeCommand extends CommandBase{
+public class IntakeCommand extends CommandBase
+{
     private final Intake intakeSubsystem;
     private final Joystick operatorController;
     private  boolean intakeinBTN = false;
@@ -26,7 +27,7 @@ public class IntakeCommand extends CommandBase{
     }
     @Override
     public void execute() {
-    System.out.println("Intake On");
+   // System.out.println("Intake On");
     intakeinBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_A_ID);
     intakeoutBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_Y_ID);
 

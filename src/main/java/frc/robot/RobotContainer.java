@@ -8,14 +8,15 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControlerConstants;
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Indexer;
+import frc.robot.subsystems.TurretSubsystem;
+import frc.robot.subsystems.ClimberSubsytem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -25,6 +26,7 @@ import frc.robot.subsystems.Intake;
  */
 public class RobotContainer {
 
+  
   private final Joystick operatorController = new Joystick(ControlerConstants.PORT_ID_OPERATOR_CONTROLER);
   private final Joystick driverController = new Joystick(ControlerConstants.PORT_ID_DRIVER_CONTROLLER);
   // The robot's subsystems and commands are defined here...
@@ -32,10 +34,14 @@ public class RobotContainer {
   private final Intake intakeSubsystem = new Intake();
   private final DriveCommand driveCommand = new DriveCommand(driverController, chassisSubsystem);
   private final IntakeCommand IntakeCommand = new IntakeCommand(operatorController,intakeSubsystem);
+  private final Indexer IndexerSubsystem = new Indexer();
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
-  private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem);
-
+  private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem, IndexerSubsystem);
+  private final TurretSubsystem turretSubsystem = new TurretSubsystem();
+  private final ManualAim manualAim= new ManualAim(operatorController, turretSubsystem);
+  private final ClimberSubsytem climberSubsytem = new ClimberSubsytem();
+  private final ClimberCommand ClimberCommand = new ClimberCommand(climberSubsytem, operatorController);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -68,7 +74,8 @@ public class RobotContainer {
     chassisSubsystem.setDefaultCommand(driveCommand);
     intakeSubsystem.setDefaultCommand(IntakeCommand);
     shooterSubsystem.setDefaultCommand(shootCommand);
-  
+    turretSubsystem.setDefaultCommand(manualAim);
+    climberSubsytem.setDefaultCommand(ClimberCommand);
   }
 
   /**
