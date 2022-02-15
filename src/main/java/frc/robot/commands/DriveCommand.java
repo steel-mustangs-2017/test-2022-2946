@@ -34,10 +34,10 @@ public class DriveCommand extends CommandBase {
   @Override
   public void execute() {
     forwardThrottle = 1-driverController.getRawAxis(ControlerConstants.FORWARD_THROTTLE_AXIS_ID);
-    turnThrottle = (driverController.getRawAxis(ControlerConstants.TURN_THROTTLE_AXIS_ID)+1)/7+.6;
+    turnThrottle = (driverController.getRawAxis(ControlerConstants.TURN_THROTTLE_AXIS_ID)+1)/4+.6;
 
     forward = driverController.getRawAxis(ControlerConstants.FORWARD_AXIS_ID);
-    turn = driverController.getRawAxis(ControlerConstants.TURN_AXIS_ID) * -0.5 * turnThrottle;
+    turn = driverController.getRawAxis(ControlerConstants.TURN_AXIS_ID) * 0.5 * turnThrottle;
 
     if (Math.abs(forward) < 0.05) {
       forward = 0;

@@ -11,7 +11,7 @@ public class Indexer extends SubsystemBase{
     private final WPI_TalonSRX indexerBot = new WPI_TalonSRX(IndexerConstants.IndexerBot);
     private final WPI_TalonSRX indexerFeeder = new WPI_TalonSRX(IndexerConstants.IndexerFeeder); 
     private final WPI_TalonSRX indexerKicker = new WPI_TalonSRX(IndexerConstants.IndexerKicker);
-    private final double speed = 0.75; 
+    private final double speed = 1; 
     public Indexer() {
         indexerTop.configFactoryDefault();
         indexerBot.configFactoryDefault();

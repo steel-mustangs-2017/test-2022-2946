@@ -40,7 +40,7 @@ public class ShooterSubsystem extends SubsystemBase {
   }
 
   public void ShootHigh(){
-    final double speed = 0.7; 
+    final double speed = 1; 
    shooterMotor.set(speed);
     shooterMotorSlave.set(speed);
     if(AtShootHighVelocity()){
@@ -58,7 +58,7 @@ public class ShooterSubsystem extends SubsystemBase {
     
   }
   public boolean AtShootHighVelocity(){
-    return shooterMotor.getSelectedSensorVelocity() > 11000;
+    return shooterMotor.getSelectedSensorVelocity() > 15000;
   }
   public boolean AtShootLowVelocity(){
     return shooterMotor.getSelectedSensorVelocity() > 5000;

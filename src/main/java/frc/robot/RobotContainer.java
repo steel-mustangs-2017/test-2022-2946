@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.TurretSubsystem;
+import frc.robot.subsystems.ClimberSubsytem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -25,6 +26,7 @@ import frc.robot.subsystems.TurretSubsystem;
  */
 public class RobotContainer {
 
+  
   private final Joystick operatorController = new Joystick(ControlerConstants.PORT_ID_OPERATOR_CONTROLER);
   private final Joystick driverController = new Joystick(ControlerConstants.PORT_ID_DRIVER_CONTROLLER);
   // The robot's subsystems and commands are defined here...
@@ -38,7 +40,9 @@ public class RobotContainer {
   private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem, IndexerSubsystem);
   private final TurretSubsystem turretSubsystem = new TurretSubsystem();
   private final ManualAim manualAim= new ManualAim(operatorController, turretSubsystem);
- 
+  private final ClimberSubsytem climberSubsytem = new ClimberSubsytem();
+  private final ClimberCommand ClimberCommand = new ClimberCommand(climberSubsytem, operatorController);
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings

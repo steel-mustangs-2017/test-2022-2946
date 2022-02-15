@@ -43,6 +43,14 @@ public final static class ShooterConstants {
         public static final int IndexerKicker = 10;
 
     }
+public final static class ClimberConstants {
+    public static final int PiviotArmLeft = 14;
+    public static final int PiviotArmRight = 15;
+    public static final int ClimberArmLeft = 16;
+    public static final int ClimberArmRight = 17; 
+
+
+}
 
     public final static class ControlerConstants {
         public static final int PORT_ID_OPERATOR_CONTROLER = 1;
@@ -64,6 +72,10 @@ public final static class ShooterConstants {
         public static final int CONTROLLER_BUTTON_B_ID = 2;
         public static final int CONTROLLER_BUTTON_X_ID = 3;
         public static final int CONTROLLER_BUTTON_Y_ID = 4;
+        public static final int Controller_Button_Start_ID = 8;
+
+        public static final int Climber_Axis_5_ID = 5;
+        public static final int Climber_Axis_4_ID = 4;
         
 
     }
