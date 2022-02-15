@@ -75,6 +75,7 @@ public class RobotContainer {
     intakeSubsystem.setDefaultCommand(IntakeCommand);
     shooterSubsystem.setDefaultCommand(shootCommand);
     turretSubsystem.setDefaultCommand(manualAim);
+    climberSubsytem.setDefaultCommand(ClimberCommand);
   }
 
   /**

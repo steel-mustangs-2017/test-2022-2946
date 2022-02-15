@@ -74,8 +74,8 @@ public final static class ClimberConstants {
         public static final int CONTROLLER_BUTTON_Y_ID = 4;
         public static final int Controller_Button_Start_ID = 8;
 
-        public static final int Climber_Axis_5_ID = 5;
-        public static final int Climber_Axis_4_ID = 4;
+        public static final int Climber_Axis_5_ID = 1;
+        public static final int Climber_Axis_4_ID = 0;
         
 
     }
