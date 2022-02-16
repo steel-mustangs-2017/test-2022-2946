@@ -43,6 +43,13 @@ public final static class ShooterConstants {
         public static final int IndexerKicker = 10;
 
     }
+
+    public final static class LimelightConstants {
+        public static final double LIMELIGHT_KP = .01;
+        public static final double LIMELIGHT_KI = 0;
+        public static final double LIMELIGHT_KD = 0;
+    }
+
 public final static class ClimberConstants {
     public static final int PiviotArmLeft = 14;
     public static final int PiviotArmRight = 15;
@@ -76,8 +83,8 @@ public final static class ClimberConstants {
 
         public static final int Climber_Axis_5_ID = 1;
         public static final int Climber_Axis_4_ID = 0;
-        
-
-    }
-
+    }        
 }
+    
+
+

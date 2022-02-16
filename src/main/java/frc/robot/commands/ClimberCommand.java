@@ -25,6 +25,8 @@ public class ClimberCommand extends CommandBase {
     public void execute() {
         double speed = -operatorController.getRawAxis(5);
         climberSubsytem.ClimbUp(speed);     
+        speed = -operatorController.getRawAxis(1);
+        climberSubsytem.piviotforward(speed/10);     
         
     }
 

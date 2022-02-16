@@ -11,14 +11,14 @@ public class ClimberSubsytem extends SubsystemBase{
 
     static WPI_TalonFX climberright = new WPI_TalonFX(ClimberConstants.ClimberArmRight);
     static WPI_TalonFX climberleft = new WPI_TalonFX(ClimberConstants.ClimberArmLeft);
-    WPI_TalonFX piviotRight = new WPI_TalonFX(ClimberConstants.PiviotArmRight);
-    WPI_TalonFX piviotLeft = new WPI_TalonFX(ClimberConstants.PiviotArmLeft);
+    static WPI_TalonFX piviotRight = new WPI_TalonFX(ClimberConstants.PiviotArmRight);
+    static WPI_TalonFX piviotLeft = new WPI_TalonFX(ClimberConstants.PiviotArmLeft);
 
     public ClimberSubsytem() {
         climberright.setInverted(false);
         climberleft.setInverted(false);
         
-        piviotRight.setInverted(false);
+        piviotRight.setInverted(true);
         piviotLeft.setInverted(false);
 
         climberright.setNeutralMode(NeutralMode.Brake);
@@ -47,16 +47,18 @@ public class ClimberSubsytem extends SubsystemBase{
   }
 
     public void Stoppiviot() {
-        climberleft.set(0);
-        climberright.set(0);
+        piviotLeft.set(0);
+        piviotRight.set(0);
       }
       public void piviotforward(double speed) {
-        climberleft.set(speed);
-        climberright.set(speed);
+        piviotLeft.set(speed);
+        piviotRight.set(speed);
       }
       public void piviotdown(double speed) {
-        climberleft.set(-speed);
-        climberright.set(-speed);
+        piviotLeft.set(-speed);
+        piviotRight.set(-speed);
+
+        
 
     
   }

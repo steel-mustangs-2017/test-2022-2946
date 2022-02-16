@@ -29,10 +29,10 @@ public class ManualAim extends CommandBase{
         public void execute() {
             super.execute();
             turn = operatorController.getRawAxis(ControlerConstants.Aim_Axis_ID);
-            System.out.println("turn1 = " + turn);
+            //System.out.println("turn1 = " + turn);
             if(Math.abs(turn) < .5){turn = 0;}
             
-             System.out.println("turn2 = " + turn);
+             //System.out.println("turn2 = " + turn);
             turretSubsystem.Turn(turn/4);
         }
  
