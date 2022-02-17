@@ -32,7 +32,8 @@ public class ClimberCommand extends CommandBase {
 
     @Override
   public void initialize() {
-    ClimberSubsytem.StopClimb();
+    climberSubsytem.StopClimb();
+    climberSubsytem.Stoppiviot();
   }
   @Override
   public boolean isFinished() {

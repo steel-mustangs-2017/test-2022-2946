@@ -33,7 +33,7 @@ public class ClimberSubsytem extends SubsystemBase{
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  public static void StopClimb() {
+  public void StopClimb() {
     climberleft.set(0);
     climberright.set(0);
   }
