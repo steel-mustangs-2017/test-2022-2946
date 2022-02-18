@@ -45,6 +45,7 @@ public class RobotContainer {
   private final ManualAim manualAim= new ManualAim(operatorController, turretSubsystem);
   private final ClimberSubsytem climberSubsytem = new ClimberSubsytem();
   private final ClimberCommand ClimberCommand = new ClimberCommand(climberSubsytem, operatorController);
+ 
   //private final LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
  // private final TurretInitCommand turretInitCommand = new TurretInitCommand(turretSubsystem,limelightSubsystem);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -80,6 +81,7 @@ public class RobotContainer {
     shooterSubsystem.setDefaultCommand(shootCommand);
     turretSubsystem.setDefaultCommand(manualAim);
     climberSubsytem.setDefaultCommand(ClimberCommand);
+    //climberSubsytem.setDefaultCommand(pivotCommand);
     //limelightSubsystem.setDefaultCommand(turretInitCommand);
   }
 

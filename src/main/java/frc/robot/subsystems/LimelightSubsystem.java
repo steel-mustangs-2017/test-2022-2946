@@ -61,6 +61,7 @@ public class LimelightSubsystem extends SubsystemBase {
     }
     public LimelightSubsystem(){
         table.getEntry("stream").setNumber(0);
+        System.out.println("line out");
         setLedOff();
         setCamera();
     }

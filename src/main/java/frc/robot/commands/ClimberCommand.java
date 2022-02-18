@@ -25,15 +25,15 @@ public class ClimberCommand extends CommandBase {
     public void execute() {
         double speed = -operatorController.getRawAxis(5);
         climberSubsytem.ClimbUp(speed);     
-        speed = -operatorController.getRawAxis(1);
-        climberSubsytem.piviotforward(speed/10);     
+        speed = operatorController.getRawAxis(0);
+        climberSubsytem.Pivotforward(speed/5);     
         
     }
 
     @Override
   public void initialize() {
     climberSubsytem.StopClimb();
-    climberSubsytem.Stoppiviot();
+    climberSubsytem.StopPivot();
   }
   @Override
   public boolean isFinished() {
