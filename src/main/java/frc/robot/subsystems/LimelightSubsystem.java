@@ -13,8 +13,6 @@ public class LimelightSubsystem extends SubsystemBase {
   private NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     private boolean ledOn = true;
     private boolean  visionOn = true;
-    
-    
 
     public void  setLedOn() {
         if (!ledOn)
@@ -60,8 +58,8 @@ public class LimelightSubsystem extends SubsystemBase {
         
     }
     public LimelightSubsystem(){
+        System.out.println("------------- line out");
         table.getEntry("stream").setNumber(0);
-        System.out.println("line out");
         setLedOff();
         setCamera();
     }
@@ -92,9 +90,13 @@ public class LimelightSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
+    System.out.println("------------- periodic line out");
+
     // This method will be called once per scheduler run
-    setLedOn();
+    setLedOff();
     setVision();
+    table.getEntry("stream").setNumber(0);
+
     NetworkTableEntry tx = table.getEntry("tx");
         NetworkTableEntry ty = table.getEntry("ty");
         NetworkTableEntry ta = table.getEntry("ta");
