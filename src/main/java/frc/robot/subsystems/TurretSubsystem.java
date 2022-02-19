@@ -51,6 +51,10 @@ public class TurretSubsystem extends SubsystemBase {
     }
     public void LimitInit(){
         Limit = true;
+        turretMotor.configForwardSoftLimitThreshold(240);
+        turretMotor.configReverseSoftLimitThreshold(-180);
+        turretMotor.configReverseSoftLimitEnable(true);
+        turretMotor.configForwardSoftLimitEnable(true);
     }
     public void Init(){
         init = true;
