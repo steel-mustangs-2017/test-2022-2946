@@ -21,6 +21,7 @@ public final class Constants {
     }
     public final class IntakeConstants{
         public final static int intakeMotor_ID = 11;
+        public final static int intake_move = 19;
     }
 
     /*public final class LimelightContstants {
@@ -83,6 +84,7 @@ public final static class ClimberConstants {
 
         public static final int Climber_Axis_5_ID = 5;
         public static final int Climber_Axis_0_ID = 4;
+        
     }        
 }
     

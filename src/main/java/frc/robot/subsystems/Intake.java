@@ -11,12 +11,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Intake extends SubsystemBase {
     
     private static final WPI_TalonSRX intakeMotor = new WPI_TalonSRX(IntakeConstants.intakeMotor_ID);
+    private static final WPI_TalonSRX intakeMove = new WPI_TalonSRX(IntakeConstants.intake_move);
     
     public Intake(){
 
         intakeMotor.configFactoryDefault();
 
         intakeMotor.setInverted(true);
+
+        intakeMove.configFactoryDefault();
+
+        
 
 
 
@@ -40,6 +45,17 @@ public class Intake extends SubsystemBase {
     public void ReverseIntake(){
         intakeMotor.set(-5);
         //System.out.println("Intake Out ON");
+    }
+    public void Intakeup(){
+        intakeMove.set(-5);
+    }
+
+    public void IntakeDown(){
+        intakeMove.set(1);
+    }
+
+    public void IntakeStop(){
+        intakeMove.set(0);
     }
 
 }

@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ControlerConstants;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.DirectionalButton;
 
 public class IntakeCommand extends CommandBase
 {
@@ -11,6 +12,8 @@ public class IntakeCommand extends CommandBase
     private final Joystick operatorController;
     private  boolean intakeinBTN = false;
     private  boolean intakeoutBTN = false;
+    private boolean IntakeUp = false;
+    private boolean IntakeDown = false;
 
     public IntakeCommand(Joystick operatorController, Intake intakeSubsystem){
        this.operatorController = operatorController;
@@ -30,8 +33,9 @@ public class IntakeCommand extends CommandBase
    // System.out.println("Intake On");
     intakeinBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_A_ID);
     intakeoutBTN = operatorController.getRawButton(ControlerConstants.CONTROLLER_BUTTON_Y_ID);
+   
 
+    }
     
-
-    } 
+    
 }
