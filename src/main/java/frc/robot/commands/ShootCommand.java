@@ -70,11 +70,9 @@ public class ShootCommand extends CommandBase {
  
     if(Indexerfeeder){
     indexerSubsystem.RunIndexerFeeder();
-    indexerSubsystem.RunIndexerKicker();
     }
     else {
       indexerSubsystem.StopIndexerFeeder();
-      indexerSubsystem.StopIndexerkicker();
     }
   }
   

@@ -17,7 +17,7 @@ public class Intake extends SubsystemBase {
 
         intakeMotor.configFactoryDefault();
 
-        intakeMotor.setInverted(true);
+        intakeMotor.setInverted(false);
 
         intakeMove.configFactoryDefault();
 
@@ -33,8 +33,8 @@ public class Intake extends SubsystemBase {
 
     }
     public void RunIntake(){
-        intakeMotor.set(0.9);
-       // System.out.println("Intake In ON");
+        intakeMotor.set(1);
+       System.out.println("Intake In ON");
     }
 
     public void StopIntake(){
@@ -47,11 +47,11 @@ public class Intake extends SubsystemBase {
         //System.out.println("Intake Out ON");
     }
     public void Intakeup(){
-        intakeMove.set(-5);
+        intakeMove.set(-.25);
     }
 
     public void IntakeDown(){
-        intakeMove.set(1);
+        intakeMove.set(0.25);
     }
 
     public void IntakeStop(){

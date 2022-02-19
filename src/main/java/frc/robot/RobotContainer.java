@@ -63,13 +63,9 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    new JoystickButton(operatorController, ControlerConstants.CONTROLLER_BUTTON_A_ID)
-    .whenActive(new RunCommand(intakeSubsystem::RunIntake, intakeSubsystem))
-    .whenInactive(new RunCommand(intakeSubsystem::StopIntake, intakeSubsystem));
+   
 
-    new JoystickButton(operatorController, ControlerConstants.CONTROLLER_BUTTON_Y_ID)
-    .whenActive(new RunCommand(intakeSubsystem::ReverseIntake, intakeSubsystem))
-    .whenInactive(new RunCommand(intakeSubsystem::StopIntake, intakeSubsystem));
+    
     
 
   }
