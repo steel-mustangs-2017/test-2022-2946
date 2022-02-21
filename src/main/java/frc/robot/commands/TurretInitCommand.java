@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ShooterConstants;
+import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
@@ -14,8 +15,9 @@ public class TurretInitCommand extends CommandBase {
 
   private final double target = 112000;
 
-  /** Creates a new TurretInitCommand. */
-  public TurretInitCommand(TurretSubsystem turretSubsystem) {
+  /** Creates a new TurretInitCommand. 
+   * @param limelightSubsystem*/
+  public TurretInitCommand(TurretSubsystem turretSubsystem, LimelightSubsystem limelightSubsystem) {
     this.turretSubsystem = turretSubsystem;
 
     addRequirements(turretSubsystem);

@@ -20,7 +20,9 @@ public final class Constants {
         public final static int BackLeft_ID = 3;
     }
     public final class IntakeConstants{
-        public final static int intakeMotor_ID = 11;
+        public final static int intakeMotor_ID = 10
+        ;
+        public final static int intake_move = 19;
     }
 
     /*public final class LimelightContstants {
@@ -36,16 +38,23 @@ public final static class ShooterConstants {
     public static final double TURRET_KD = 0.0000001;
     
 }
+    // All BAG motors
     public final static class IndexerConstants {
-        public final static int IndexerTop = 6;
+        public final static int IndexerTop = 8;
         public final static int IndexerBot = 7;
-        public final static int IndexerFeeder = 8;
-        public static final int IndexerKicker = 10;
+        public final static int IndexerFeeder = 6;
 
     }
+
+    public final static class LimelightConstants {
+        public static final double LIMELIGHT_KP = .01;
+        public static final double LIMELIGHT_KI = 0;
+        public static final double LIMELIGHT_KD = 0;
+    }
+
 public final static class ClimberConstants {
-    public static final int PiviotArmLeft = 14;
-    public static final int PiviotArmRight = 15;
+    public static final int PivotArmLeft = 14;
+    public static final int PivotArmRight = 15;
     public static final int ClimberArmLeft = 16;
     public static final int ClimberArmRight = 17; 
 
@@ -74,10 +83,11 @@ public final static class ClimberConstants {
         public static final int CONTROLLER_BUTTON_Y_ID = 4;
         public static final int Controller_Button_Start_ID = 8;
 
-        public static final int Climber_Axis_5_ID = 1;
-        public static final int Climber_Axis_4_ID = 0;
+        public static final int Climber_Axis_5_ID = 5;
+        public static final int Climber_Axis_0_ID = 4;
         
-
-    }
-
+    }        
 }
+    
+
+

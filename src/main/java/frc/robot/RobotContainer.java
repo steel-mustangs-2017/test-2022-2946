@@ -17,6 +17,8 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.TurretSubsystem;
 import frc.robot.subsystems.ClimberSubsytem;
+import frc.robot.subsystems.LimelightSubsystem;
+//import frc.robot.subsystems.LimelightSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -35,6 +37,7 @@ public class RobotContainer {
   private final DriveCommand driveCommand = new DriveCommand(driverController, chassisSubsystem);
   private final IntakeCommand IntakeCommand = new IntakeCommand(operatorController,intakeSubsystem);
   private final Indexer IndexerSubsystem = new Indexer();
+  private final LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
   //private final MotorTest motorTest = new MotorTest(chassisSubsystem, operatorController);
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   private final ShootCommand shootCommand = new ShootCommand(operatorController, shooterSubsystem, IndexerSubsystem);
@@ -42,7 +45,9 @@ public class RobotContainer {
   private final ManualAim manualAim= new ManualAim(operatorController, turretSubsystem);
   private final ClimberSubsytem climberSubsytem = new ClimberSubsytem();
   private final ClimberCommand ClimberCommand = new ClimberCommand(climberSubsytem, operatorController);
-
+ 
+  //private final LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
+ // private final TurretInitCommand turretInitCommand = new TurretInitCommand(turretSubsystem,limelightSubsystem);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -58,13 +63,9 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    new JoystickButton(operatorController, ControlerConstants.CONTROLLER_BUTTON_A_ID)
-    .whenActive(new RunCommand(intakeSubsystem::RunIntake, intakeSubsystem))
-    .whenInactive(new RunCommand(intakeSubsystem::StopIntake, intakeSubsystem));
+   
 
-    new JoystickButton(operatorController, ControlerConstants.CONTROLLER_BUTTON_Y_ID)
-    .whenActive(new RunCommand(intakeSubsystem::ReverseIntake, intakeSubsystem))
-    .whenInactive(new RunCommand(intakeSubsystem::StopIntake, intakeSubsystem));
+    
     
 
   }
@@ -76,6 +77,8 @@ public class RobotContainer {
     shooterSubsystem.setDefaultCommand(shootCommand);
     turretSubsystem.setDefaultCommand(manualAim);
     climberSubsytem.setDefaultCommand(ClimberCommand);
+    //climberSubsytem.setDefaultCommand(pivotCommand);
+    //limelightSubsystem.setDefaultCommand(turretInitCommand);
   }
 
   /**

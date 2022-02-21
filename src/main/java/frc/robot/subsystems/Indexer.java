@@ -10,14 +10,14 @@ public class Indexer extends SubsystemBase{
     private final WPI_TalonSRX indexerTop = new WPI_TalonSRX(IndexerConstants.IndexerTop);
     private final WPI_TalonSRX indexerBot = new WPI_TalonSRX(IndexerConstants.IndexerBot);
     private final WPI_TalonSRX indexerFeeder = new WPI_TalonSRX(IndexerConstants.IndexerFeeder); 
-    private final WPI_TalonSRX indexerKicker = new WPI_TalonSRX(IndexerConstants.IndexerKicker);
     private final double speed = 1; 
     public Indexer() {
         indexerTop.configFactoryDefault();
         indexerBot.configFactoryDefault();
         indexerFeeder.configFactoryDefault();
     
-        indexerBot.setInverted(true);
+        indexerBot.setInverted(false);
+        indexerTop.setInverted(true);
 
         indexerTop.setNeutralMode(NeutralMode.Brake);
         indexerFeeder.setNeutralMode(NeutralMode.Brake);
@@ -52,11 +52,5 @@ public class Indexer extends SubsystemBase{
         indexerFeeder.set(0);
     }
 
-    public void RunIndexerKicker() {
-        indexerKicker.set(speed);
-    }
-
-    public void StopIndexerkicker() {
-        indexerKicker.set(0);
-    }
+   
 }
