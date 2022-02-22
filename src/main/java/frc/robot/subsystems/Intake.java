@@ -33,7 +33,8 @@ public class Intake extends SubsystemBase {
 
     }
     public void RunIntake(){
-        intakeMotor.set(1);
+        intakeMotor.set(1
+        );
        System.out.println("Intake In ON");
     }
 

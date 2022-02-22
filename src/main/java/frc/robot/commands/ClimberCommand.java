@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import com.fasterxml.jackson.databind.node.DoubleNode;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller.Axis;
 import frc.robot.subsystems.ClimberSubsytem;
@@ -23,23 +25,31 @@ public class ClimberCommand extends CommandBase {
         this.operatorController  = operatorController;
     
         addRequirements(climberSubsytem);
+        climberSubsytem.StopClimb();
+        climberSubsytem.StopPivot();
 
     }
 
     @Override 
     public void execute() {
       double climbaxis = -operatorController.getRawAxis(5);
-      double pivotaxis = -operatorController.getRawAxis(4);
+      double pivotaxis = -operatorController.getRawAxis(1);
       
-      if(Math.abs(climbaxis) < .1 && Math.abs(pivotaxis) < -1){
-      //dont do anything not enought movement   
-      } 
-      else if(Math.abs(climbaxis) > Math.abs(pivotaxis)){
+     
+       if(Math.abs(climbaxis) > .15){
         climberSubsytem.ClimbUp(climbaxis);
+        System.out.println("climberSubsytem.ClimbUp("+climbaxis);
       } 
-      else if(Math.abs(climbaxis) < Math.abs(pivotaxis)){
+      else{
+        climberSubsytem.StopClimb();
+      }
+       if(Math.abs(pivotaxis) > .15){
         climberSubsytem.Pivotforward(pivotaxis);
+        //System.out.println("climberSubsytem.Pivotforward("+pivotaxis);
     
+      }
+      else{
+        climberSubsytem.StopPivot();
       }
     }
 

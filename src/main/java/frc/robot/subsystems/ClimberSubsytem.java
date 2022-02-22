@@ -51,12 +51,12 @@ public class ClimberSubsytem extends SubsystemBase{
         PivotRight.set(0);
       }
       public void Pivotforward(double speed) {
-        PivotLeft.set(-speed);
-        PivotRight.set(-speed);
+        PivotLeft.set(-speed/4);
+        PivotRight.set(-speed/4);
       }
       public void Pivotdown(double speed) {
-        PivotLeft.set(-speed);
-        PivotRight.set(-speed);
+        PivotLeft.set(-speed/4);
+        PivotRight.set(-speed/4);
       }
      
 }
