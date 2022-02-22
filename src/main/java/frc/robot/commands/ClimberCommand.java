@@ -38,12 +38,18 @@ public class ClimberCommand extends CommandBase {
      
        if(Math.abs(climbaxis) > .15){
         climberSubsytem.ClimbUp(climbaxis);
-        //System.out.println("climberSubsytem.ClimbUp("+climbaxis);
+        System.out.println("climberSubsytem.ClimbUp("+climbaxis);
       } 
+      else{
+        climberSubsytem.StopClimb();
+      }
        if(Math.abs(pivotaxis) > .15){
         climberSubsytem.Pivotforward(pivotaxis);
         //System.out.println("climberSubsytem.Pivotforward("+pivotaxis);
     
+      }
+      else{
+        climberSubsytem.StopPivot();
       }
     }
 
