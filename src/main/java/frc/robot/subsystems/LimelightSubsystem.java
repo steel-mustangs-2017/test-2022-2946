@@ -58,7 +58,7 @@ public class LimelightSubsystem extends SubsystemBase {
         
     }
     public LimelightSubsystem(){
-        System.out.println("------------- line out");
+        //System.out.println("------------- line out");
         table.getEntry("stream").setNumber(0);
         setLedOff();
         setCamera();
@@ -90,7 +90,7 @@ public class LimelightSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    System.out.println("------------- periodic line out");
+    
 
     // This method will be called once per scheduler run
     setLedOff();
